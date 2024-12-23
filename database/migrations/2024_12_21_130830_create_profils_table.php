@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pelanggans', function (Blueprint $table) {
+        Schema::create('profils', function (Blueprint $table) {
             $table->id();
+            $table->string('nama')->nullable(false); // Nama lengkap
+            $table->string('NIM')->unique(); // NIM mahasiswa
+            $table->string('prodi'); // Program Studi
+            $table->text('alamat')->nullable(); // Alamat
+            $table->string('gambar')->nullable(); // Path gambar
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pelanggans');
+        Schema::dropIfExists('profils');
     }
 };

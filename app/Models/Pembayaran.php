@@ -9,9 +9,15 @@ class Pembayaran extends Model
 {
     use HasFactory;
 
-    protected $table = 'pembayarans';
+    // Kolom-kolom yang dapat diisi menggunakan mass assignment
+    protected $fillable = [
+        'id_penyewaan',  // Tambahkan id_penyewaan di sini
+        'jumlah_pembayaran', // Kolom lain yang relevan
+        'tanggal_pembayaran', // Kolom lain yang relevan
+        // Kolom-kolom lainnya jika ada
+    ];
 
-    // Relasi ke Penyewaan
+    // Relasi dengan model Penyewaan
     public function penyewaan()
     {
         return $this->belongsTo(Penyewaan::class, 'id_penyewaan');
