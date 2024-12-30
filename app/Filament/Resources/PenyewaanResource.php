@@ -45,8 +45,17 @@ class PenyewaanResource extends Resource
                 TextColumn::make('tanggal_sewa')->sortable()->searchable(),
                 TextColumn::make('tanggal_kembali')->sortable()->searchable(),
                 TextColumn::make('total_biaya')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('id'),
             ])
-            ->filters([]);
+            ->filters([])
+            ->actions([
+                Tables\Actions\EditAction::make(),
+            ])
+            ->bulkActions([
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
+            ]);
     }
 
     public static function getPages(): array

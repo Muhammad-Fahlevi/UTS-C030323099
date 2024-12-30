@@ -214,6 +214,7 @@ $pelanggans = pelanggan::all();
                                     <option value="Cash">Cash</option>
                                 </select>
                             </div>
+
                             <div class="form-group">
                                 <label for="tanggal_pembayaran">Tanggal Pembayaran</label>
                                 <input type="date" class="form-control" name="tanggal_pembayaran" required>
@@ -221,7 +222,7 @@ $pelanggans = pelanggan::all();
                             <div class="form-group">
                                 <label for="jumlah_bayar">Jumlah Bayar</label>
                                 <input type="number" class="form-control" name="jumlah_bayar" required>
-                            </div>
+                                </div>
                             <div class="form-group">
         <label for="bukti_pembayaran">Bukti Pembayaran</label>
         <input type="file" class="form-control" name="bukti_pembayaran" id="bukti_pembayaran" accept="image/*">

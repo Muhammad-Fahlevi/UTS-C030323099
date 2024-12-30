@@ -12,4 +12,4 @@ class PenyewaanController extends Controller
         Penyewaan::create($request->all());
         return redirect()->back()->with('success', 'Penyewaan berhasil ditambahkan!');
     }
-}
+};

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Profil;
+use App\Models\Penyewaan;
+use App\Models\Pembayaran;
 use Illuminate\Http\Request;
 
 class ProfilController extends Controller
@@ -12,7 +14,7 @@ class ProfilController extends Controller
         $profils = Profil::all();
         $penyewaans = Penyewaan::with(['pelanggan', 'kendaraan'])->get();
         $pembayarans = Pembayaran::with(['penyewaan.pelanggan'])->get();
-        return view('index', compact('profils', 'penyewaan', 'pembayaran'));
+        return view('index', compact('profils', 'penyewaans', 'pembayarans'));
     }
 
     public function create()

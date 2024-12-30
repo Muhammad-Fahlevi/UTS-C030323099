@@ -25,11 +25,11 @@ class PembayaranResource extends Resource
                 Forms\Components\Select::make('id_penyewaan')
                     ->relationship('penyewaan', 'id')
                     ->required(),
-                Forms\Components\TextInput::make('metode_pembayaran')->required(),
+                // Forms\Components\TextInput::make('metode_pembayaran')->required(),
                 Forms\Components\TextInput::make('jumlah_bayar')
                     ->numeric()
                     ->required(),
-                Forms\Components\DatePicker::make('tanggal_bayar')->required(),
+                Forms\Components\DatePicker::make('tanggal_pembayaran')->required(),
             ]);
     }
 
@@ -37,13 +37,27 @@ class PembayaranResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id')->sortable(),
-                TextColumn::make('penyewaan.id')->label('ID Penyewaan')->sortable()->searchable(),
-                TextColumn::make('metode_pembayaran')->sortable()->searchable(),
-                TextColumn::make('jumlah_bayar')->sortable()->searchable(),
-                TextColumn::make('tanggal_bayar')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('id')->sortable(),
+                Tables\Columns\TextColumn::make('penyewaan.id')->label('ID Penyewaan')->sortable()->searchable(),
+                // Tables\Columns\TextColumn::make('metode_pembayaran')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('jumlah_bayar')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('tanggal_pembayaran')->sortable()->searchable(),
+                // Tables\Columns\TextColumn::make('id'),
+                // Tables\Columns\TextColumn::make('metode_pembayaran'),
+                // Tables\Columns\TextColumn::make('jumlah_bayar'),
+                // Tables\Columns\TextColumn::make('tanggal_bayar'),
             ])
-            ->filters([]);
+            ->filters([
+                //
+            ])
+            ->actions([
+                Tables\Actions\EditAction::make(),
+            ])
+            ->bulkActions([
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
+            ]);
     }
 
     public static function getPages(): array

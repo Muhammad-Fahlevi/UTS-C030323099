@@ -44,4 +44,4 @@ class CreatePenyewaansTable extends Migration
         // Hapus tabel setelah foreign key dihapus
         Schema::dropIfExists('penyewaans');
     }
-}
+};

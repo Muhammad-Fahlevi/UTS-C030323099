@@ -14,6 +14,7 @@ Route::put('/profils/{id}', [ProfilController::class, 'update'])->name('profils.
 Route::post('/pelanggan', [PelangganController::class, 'store'])->name('pelanggan.store');
 Route::post('/penyewaan', [PenyewaanController::class, 'store'])->name('penyewaan.store');
 Route::post('/pembayaran', [PembayaranController::class, 'store'])->name('pembayaran.store');
+Route::resource('pembayaran', PembayaranController::class);
 Route::get('/', function () {
     return view('index');
 
